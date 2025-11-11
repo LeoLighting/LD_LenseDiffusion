@@ -1,2 +1,3 @@
 # LD_LenseDiffusion
 
+This tool creates a lense diffusion effect by removing any very bright parts of the image to add a blur lense "imperfection". Saw that node from an artist on X / twitter and I am incapable of finding it again...
