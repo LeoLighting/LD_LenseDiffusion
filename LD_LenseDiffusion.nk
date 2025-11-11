@@ -1,0 +1,92 @@
+Group {
+ name LENSE_DIFFUSION
+ tile_color 0xff00ff
+ selected true
+ xpos 1139
+ ypos 3332
+ addUserKnob {20 User}
+ addUserKnob {26 text l "" +STARTLINE T "<font color=\"white\" face=\"Constantiai\" size=\"7\">Lense Diffusion v1.0                                      </font>"}
+ addUserKnob {26 ""}
+ addUserKnob {41 range T Keyer1.range}
+ addUserKnob {26 ""}
+ addUserKnob {41 multiply l darken T Grade36.multiply}
+ addUserKnob {41 size l blur T Blur5.size}
+ addUserKnob {41 white l gain T Grade45.white}
+ addUserKnob {41 mix T Merge60.mix}
+}
+ Input {
+  inputs 0
+  name B
+  xpos 350
+  ypos -127
+ }
+ Dot {
+  name Dot55
+  xpos 384
+  ypos -22
+ }
+set N8cda9c00 [stack 0]
+ Dot {
+  name Dot57
+  xpos 274
+  ypos -22
+ }
+set N8cda9800 [stack 0]
+ Keyer {
+  operation "luminance key"
+  name Keyer1
+  label "Remove intense lights"
+  xpos 130
+  ypos 11
+ }
+ Dot {
+  name Dot58
+  xpos 164
+  ypos 122
+ }
+push $N8cda9800
+ Merge2 {
+  inputs 2
+  operation stencil
+  name Merge59
+  xpos 240
+  ypos 119
+ }
+ Grade {
+  name Grade36
+  label darken
+  xpos 240
+  ypos 165
+ }
+ Blur {
+  size 30
+  name Blur5
+  xpos 240
+  ypos 239
+ }
+ Grade {
+  name Grade45
+  label Color
+  xpos 240
+  ypos 367
+ }
+ Dot {
+  name Dot59
+  xpos 274
+  ypos 430
+ }
+push $N8cda9c00
+ Merge2 {
+  inputs 2
+  operation plus
+  bbox B
+  name Merge60
+  xpos 350
+  ypos 427
+ }
+ Output {
+  name Output1
+  xpos 350
+  ypos 521
+ }
+end_group
